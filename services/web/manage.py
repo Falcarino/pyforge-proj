@@ -9,7 +9,7 @@ def create_db():
     db.create_all()
     db.session.commit()
 
-@cli.command("create_entry")
+@cli.command("get_compound")
 def create_entry():
     usr_input = input("Enter the compound you're searching for: ")
     db.session.add(Compound(usr_input.upper()))

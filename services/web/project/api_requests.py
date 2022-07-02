@@ -2,6 +2,8 @@ from urllib.request import urlopen
 import json
 
 def get_compound_properties(compound):
+    legal_compounds = ["ADP", "ATP", "STI", "ZID",
+                       "DPM", "XP9", "18W", "29P"]
 
     url = "https://ebi.ac.uk/pdbe/graph-api/compound/summary/"
     url += compound

@@ -29,12 +29,26 @@ class Compound(db.Model):
         self.cross_links_count = len(properties['cross_links'])
 
     def __repr__(self):
-        entry = ""
-        instance_values = self.__dict__.items()
+        entry = "\n"
+        instance_values = list(self.__dict__.items())
+        del instance_values[0]
+        """
+        Making the output show in the form of
 
+        --------------------------
+        Compound: <self.compound>
+        Name: <self.name>
+        ...
+        --------------------------
+
+        but instance_values keys are arranged in a really weird order i can't understand,
+        because they're supposed to be arranged in order of their appearance in the
+        __init__ function (tested it out with other classes). It still works as intended,
+        but could be prettier. However, i don't want to dedicate any more time to it,
+        simply not worth it.
+        """
         for attribute, value in instance_values:
-            if attribute != "_sa_instance_state":
-                entry += attribute.capitalize() + ": " + self.trunc_print(str(value)) + "\n"
+            entry += attribute.capitalize() + ": " + self.trunc_print(str(value)) + "\n"
         return entry
 
     def trunc_print(self, s):
