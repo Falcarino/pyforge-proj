@@ -1,0 +1,8 @@
+Checks the created volume:
+$ docker volume inspect pyforge-proj_postgres_data
+
+Just remember the syntax:
+$ docker-compose exec web python manage.py create_db
+
+Get into the db:
+$ docker-compose exec db psql --username=postgres --dbname=postgres_dev
