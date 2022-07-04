@@ -1,9 +1,23 @@
 from urllib.request import urlopen
+from pathlib import Path
 import json
 
+'''
+Path(__file__) returns the absolute file path,
+but .parent makes it return just the dir the file is in.
+'/' is an operator that appends the string that follows
+'''
+# Getting a list of the compounds user is allowed to call
+file_path = Path(__file__).parent / "Allowed compounds.txt"
+with open(file_path) as f:
+    legal_compounds = list(map(str.strip,f.readlines()))
+
+
 def get_compound_properties(compound):
-    legal_compounds = ["ADP", "ATP", "STI", "ZID",
-                       "DPM", "XP9", "18W", "29P"]
+
+    global legal_compounds
+    if compound not in legal_compounds:
+        raise ValueError("Tried calling illegal compound")
 
     url = "https://ebi.ac.uk/pdbe/graph-api/compound/summary/"
     url += compound

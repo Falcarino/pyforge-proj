@@ -1,2 +1,4 @@
 services/web/env/
 services/web/project/__pycache__/
+services/web/project/test.py
+services/web/project/test2.py
