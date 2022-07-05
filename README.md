@@ -23,7 +23,7 @@ Just don't immediately execute the command after running the image, you might ge
 Then, get the compound you want via 
 `$ docker-compose exec web python manage.py get_compound`. 
 Don't forget you can use the '↑' key to get the previous command you executed, in case you want to get multiples compounds.
-As you use this command, it will be automatically logged. The log.txt file can be found in the services/web/logs directory.
+As you use this command, it will be automatically logged. The log.txt file can be found in the **services/web/logs** directory.
 
 Once you've gotten enough entries in and want to actually see the data you've obtained, run
 `$ docker-compose exec web python manage.py get_db`. 
