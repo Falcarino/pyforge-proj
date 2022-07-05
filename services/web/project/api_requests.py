@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 from pathlib import Path
+from .logger import log_function_call, create_logger
 import json
 
 '''
@@ -12,7 +13,7 @@ file_path = Path(__file__).parent / "Allowed compounds.txt"
 with open(file_path) as f:
     legal_compounds = list(map(str.strip,f.readlines()))
 
-
+@log_function_call(create_logger())
 def get_compound_properties(compound):
 
     global legal_compounds

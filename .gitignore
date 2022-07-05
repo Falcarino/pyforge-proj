@@ -1,4 +1,5 @@
 services/web/env/
 services/web/project/__pycache__/
+**/log.txt
 services/web/project/test.py
 services/web/project/test2.py
