@@ -32,7 +32,8 @@ def log_function_call(logger):
 
 def create_logger():
 
-    logs_dir_path = Path(__file__).parent / "logs/"
+    # Creating pyforge-proj/services/web/logs directory
+    logs_dir_path = Path(__file__).parent / "../logs/"
     if not os.path.exists(logs_dir_path):
         os.mkdir(logs_dir_path)
 
